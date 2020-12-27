@@ -1,25 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { FlatList } from "react-native";
+import Todo from "./Todo"
 
 export const ListTodo = ({ list }) => {
   return (
     <FlatList
       data={list}
       keyExtractor={list.id}
-      renderItem={({ item }) => (
-        <Text style={styles.item} key={item.id}>
-          {item.title}
-        </Text>
-      )}
+      renderItem={({ item }) => (<Todo todo={item} />)}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  item: {
-    margin: 10,
-    color: "#777",
-  },
-});
 
 export default ListTodo;
