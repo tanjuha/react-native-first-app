@@ -27,11 +27,15 @@ export default function App() {
     setTodos((prev) => [...prev, newTodo]);
   };
 
+  const removeTodo = (id) => {
+   setTodos((prev) => prev.filter((todo) => todo.id !== id) )
+  }
+
   return (
     <View>
       <NavBar title={"top app"} />
       <AddTodo onSubmit={addTodo} />
-      <ListTodo list={todos} />
+      <ListTodo list={todos} onRemoveTodo={removeTodo} />
       <StatusBar style="auto" />
     </View>
   );

@@ -1,9 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-export const Todo = ({ todo }) => {
+export const Todo = ({ todo, onRemoveTodo }) => {
+
   return (
-    <TouchableOpacity activeOpacity={0.7} onPress={()=> console.log('id', todo.id)}>
+    <TouchableOpacity
+      activeOpacity={0.7}
+      onPress={() => onRemoveTodo(todo.id)}
+    >
       <Text style={styles.item}>{todo.title}</Text>
     </TouchableOpacity>
   );
@@ -16,7 +20,7 @@ const styles = StyleSheet.create({
     color: "#777",
     borderWidth: 1,
     borderColor: "#eee",
-    padding: 10
+    padding: 10,
   },
 });
 
